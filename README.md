@@ -6,23 +6,13 @@ Keep in mind that the package is **not** official, there may be bugs specific to
 Check `~/.var/app/sh.ppy.osu/data/osu`
 
 ## Graphics tablets
-osu! uses [OpenTabletDriver](https://github.com/OpenTabletDriver/OpenTabletDriver) for graphics tablets support. \
-However, it may not work for some reasons, here are some of them:
- - **At the moment, the tablet is controlled by the kernel module** \
-You need to unload the module yourself from the terminal, using the following command: \
-`sudo rmmod wacom || sudo rmmod hid_uclogic`
- - **Failed to open device streams** \
-You need to download and execute the script from this repository (`tablet-udev-gen-rules.sh`) and create some [udev rules](https://wiki.archlinux.org/title/udev)\
-Don't forget to install `git` and `jq` via your package manager! \
-\
-If you are *not sure*/*do not understand* what to do:
-```
-curl -L -o ./tablet-udev-gen-rules.sh https://raw.githubusercontent.com/flathub/sh.ppy.osu/master/tablet-udev-gen-rules.sh
-chmod +x ./tablet-udev-gen-rules.sh
-./tablet-udev-gen-rules.sh --idk # press Enter after udev question
-```
-or, follow [this guide](https://opentabletdriver.net/Wiki/FAQ/Linux#fail-device-streams)
-> **_Note_**: To generate udev rules using the official guide, you need to install `dotnet` from the repositories of your distribution
+osu! uses [OpenTabletDriver](https://github.com/OpenTabletDriver/OpenTabletDriver) for graphics tablets support.
+Refer to their [installation instructions](https://opentabletdriver.net/Wiki/Install/Linux).
+
+Typically, installing it according to their instructions will be enough, but if this does not work, you might need 
+to [update your udev rules](https://opentabletdriver.net/Wiki/FAQ/Linux#fail-device-streams).
+
+If all else fails, refer to your distribution's respective help channels.
 
 Please, share your experience of using a graphics tablet in **osu!**. Both on the build in `flatpak` and on the official one (`AppImage`).
 
